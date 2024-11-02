@@ -4,7 +4,6 @@ import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.Gravity
-import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.LinearLayoutCompat
@@ -18,8 +17,6 @@ import com.sushi.flex.menu.simple.R
 class MainActivity : AppCompatActivity() {
 
     private lateinit var flexMenu: FlexMenuLayout
-    private lateinit var tv: TextView
-    private lateinit var add: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,26 +29,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         flexMenu = findViewById(R.id.flex_menu)
-        tv = findViewById(R.id.tv)
-        add = findViewById(R.id.add)
-        tv.setOnClickListener {
-            flexMenu.removeItem(flexMenu.childCount - 1)
-        }
-        add.setOnClickListener {
-            val lp = LinearLayoutCompat.LayoutParams(
-                LinearLayoutCompat.LayoutParams.MATCH_PARENT, 150
-            )
-            val item = FlexMenuItem(this)
-            with(item) {
-                layoutParams = lp
-                setTextColor(Color.WHITE)
-                textSize = 16f
-                gravity = Gravity.CENTER
-                text = "新增item"
-                flexMenu.addItem(this)
-            }
-            flexMenu.setSelectedView(item)
-        }
 
         FlexMenuConfig.build {
             setSelectedIndex(0)
