@@ -1,5 +1,6 @@
 package com.sushi.flex.menu
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
@@ -51,6 +52,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun createFlexMenuItems(): MutableList<FlexMenuItem> {
         val lp = LinearLayoutCompat.LayoutParams(
             LinearLayoutCompat.LayoutParams.MATCH_PARENT, 150
